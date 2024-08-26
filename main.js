@@ -65,14 +65,14 @@ function createPosts(boardContainer) {
         boardContainer.innerHTML += `
         <div class="post">
             <div class="post__header">
-                <div class="post-meta">                    
+                <div class="post-meta">
                     <div class="post-meta__icon">
-                        <img class="profile-pic" src=${posts[i].author.image} alt="${posts[i].author.name}">                    
+                        <img class="profile-pic" src=${posts[i].author.image} alt="${posts[i].author.name}">
                     </div>
                     <div class="post-meta__data">
                         <div class="post-meta__author">${posts[i].author.name}</div>
                         <div class="post-meta__time">${posts[i].created}</div>
-                    </div>                    
+                    </div>
                 </div>
             </div>
             <div class="post__text">${posts[i].content}</div>
@@ -90,8 +90,8 @@ function createPosts(boardContainer) {
                     <div class="likes__counter">
                         Piace a <b id="like-counter-${posts[i].id}" class="js-likes-counter">${posts[i].likes}</b> persone
                     </div>
-                </div> 
-            </div>            
+                </div>
+            </div>
         </div>`
     };
 };
