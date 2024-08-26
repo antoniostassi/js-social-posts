@@ -97,6 +97,7 @@ function createPosts(boardContainer) {
 };
 
 const likeButton = document.querySelectorAll(".like-button.js-like-button");
+let likedPosts = [];
 
 //console.log(likeButton[0].getAttribute("data-postid")); // Test per prendere l'id del bottone.
 addEventClickable(likeButton);
@@ -112,14 +113,18 @@ function addEventClickable(likeButtonArray) {
             if (element.getAttribute("liked") == "false") {
                 element.setAttribute("liked", "true");
                 likeCounter.innerHTML = currentLikes+1;
+                likedPosts.push(postId);
             } else {
                 element.setAttribute("liked", "false");
                 likeCounter.innerHTML = currentLikes-1;
+                likedPosts.pop(postId);
             }
-            element.classList.toggle("like-button--liked");
-            
+
+            posts[postId-1].likes = likeCounter.innerHTML; // Aggiorno l'object
+            element.classList.toggle("like-button--liked"); // Assegno/Rimuovo il class-style del Like Button
+            console.log("Liked Posts: "+likedPosts);
         });
     });
-
+    
 }
 
